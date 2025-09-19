@@ -1,0 +1,15 @@
+name: Ordering Service CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  use-template:
+    uses: gitdigital-products/workflow-templates/.github/workflows/ci-template.yml@main
+    with:
+      language: node
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
