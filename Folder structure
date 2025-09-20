@@ -1,0 +1,8 @@
+.github/
+├─ workflows/
+│  ├─ ci-template.yml        # Reusable CI/CD workflow
+│  ├─ release.yml            # Reusable release + GitHub release workflow
+│  ├─ dependabot-label.yml   # Auto-label Dependabot PRs
+├─ dependabot.yml            # Dependabot configuration
+├─ changelog-config.json     # Changelog categories & labels
+└─ PULL_REQUEST_TEMPLATE.md  # Optional PR template for consistency
