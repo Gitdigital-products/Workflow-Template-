@@ -1,0 +1,10 @@
+{
+  "name": "dashboard-service",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo 'No tests yet' && exit 0",
+    "lint": "echo 'No lint yet' && exit 0",
+    "build": "echo 'Nothing to build' && exit 0"
+  }
+}
