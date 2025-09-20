@@ -1,0 +1,27 @@
+gitdigital-playground/
+├─ ordering-service/
+│  ├─ src/index.js
+│  ├─ package.json
+│  └─ .github/workflows/
+│      ├─ ci.yml
+│      └─ publish.yml
+├─ inventory-service/
+│  ├─ src/main.rs
+│  ├─ Cargo.toml
+│  └─ .github/workflows/
+│      ├─ ci.yml
+│      └─ publish.yml
+├─ dashboard-service/
+│  ├─ src/index.js
+│  ├─ package.json
+│  └─ .github/workflows/
+│      ├─ ci.yml
+│      └─ publish.yml
+├─ docker-compose.yml
+├─ .github/  (org-wide workflows)
+│  ├─ workflows/
+│  │  ├─ ci-template.yml
+│  │  ├─ release.yml
+│  │  └─ integration.yml
+│  ├─ dependabot.yml
+│  └─ changelog-config.json
