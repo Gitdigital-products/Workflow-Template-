@@ -1,0 +1,12 @@
+name: Project CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  use-shared:
+    uses: Gitdigital-products/.github/.github/workflows/ci.yml@main
+    with:
+      node_version: "20"
