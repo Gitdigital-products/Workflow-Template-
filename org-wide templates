@@ -1,0 +1,5 @@
+jobs:
+  use-template:
+    uses: Gitdigital-products/.github/.github/workflows/ci-template.yml@main
+    with:
+      node_version: "20"  # or "rust"
