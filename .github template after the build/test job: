@@ -1,0 +1,5 @@
+jobs:
+  build-test: ...
+  integration:
+    uses: Gitdigital-products/.github/.github/workflows/integration.yml@main
+    needs: build-test
