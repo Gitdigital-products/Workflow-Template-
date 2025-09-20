@@ -1,0 +1,52 @@
+┌───────────────────────┐
+                  │  Developer / PRs      │
+                  └─────────┬─────────────┘
+                            │ Push / PR
+                            ▼
+                  ┌───────────────────────┐
+                  │ GitHub Repos           │
+                  │  - ordering-service    │
+                  │  - inventory-service   │
+                  │  - dashboard-service   │
+                  └─────────┬─────────────┘
+                            │ Triggers
+                            ▼
+                  ┌───────────────────────┐
+                  │ GitHub Actions CI/CD  │
+                  │  - ci-template.yml    │
+                  │  - integration.yml    │
+                  │  - release.yml        │
+                  └─────────┬─────────────┘
+                            │
+         ┌──────────────────┴───────────────────┐
+         │                                      │
+         ▼                                      ▼
+ ┌─────────────────┐                    ┌─────────────────────┐
+ │ Build & Test    │                    │ Integration Tests   │
+ │ - Lint          │                    │ - ordering-service  │
+ │ - Unit tests    │                    │ - inventory-service │
+ │ - Build Docker  │                    │ - dashboard-service │
+ └─────────────────┘                    └─────────────────────┘
+         │                                      │
+         └─────────────┬────────────────────────┘
+                       ▼
+               ┌─────────────────┐
+               │ Release Workflow │
+               │ - Tag triggers  │
+               │ - npm publish   │
+               │ - GHCR Docker   │
+               │ - GitHub Release│
+               │ - Auto Changelog│
+               └─────────┬───────┘
+                         │
+                         ▼
+               ┌─────────────────┐
+               │ Staging Server   │
+               │ - Docker Compose │
+               │   ordering       │
+               │   inventory      │
+               │   dashboard      │
+               └─────────┬───────┘
+                         │ Live preview
+                         ▼
+                   End-to-End Playground
