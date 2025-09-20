@@ -1,0 +1,29 @@
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        if: contains(matrix.language, 'node')
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm install
+        working-directory: ./ordering-service
+
+      - name: Run lint
+        run: npm run lint
+        working-directory: ./ordering-service
+
+      - name: Run tests
+        run: npm test
+        working-directory: ./ordering-service
+
+      - name: Docker build & push
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}/ordering-service:${{ github.sha }} .
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker push ghcr.io/${{ github.repository }}/ordering-service:${{ github.sha }}
